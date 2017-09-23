@@ -2,28 +2,25 @@ package com.naviosa.Controllers;
 
 import com.naviosa.NaviGate.WebClient;
 import org.json.XML;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class RateAvailabilityController {
-    private final Logger logger = LoggerFactory.getLogger(ProductAvailabilityController.class);
+public class ItineraryDetailController {
 
     @Value("${website.url}")
     private String url;
 
-    private String messageID="CCRATAV1";
+    private String messageID="CCPROIT1";
 
-    @RequestMapping(value = "/rate", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody String getRateInJson(
+
+    @RequestMapping(value = "/itinerary", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody String getItineraryInJson(
             @RequestParam(value = "sailingID", required = true) String sailingID,
             @RequestParam(value = "sailDate", required = true) String sailDate,
             @RequestParam(value = "durationDays", required = true) String durationDays,
-            @RequestParam(value = "shipCode", required = true) String shipCode,
-            @RequestParam(value = "cityCode", required = true) String cityCode
-    ) throws Exception{
+            @RequestParam(value = "shipCode", required = true) String shipCode
+            ) throws Exception {
         String xmlData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<CruiseLineRequest>\n" +
                 "  <MessageHeader SegmentId=\"MSGHDR\">\n" +
@@ -40,24 +37,18 @@ public class RateAvailabilityController {
                 "    <SendDescriptionInd>Y</SendDescriptionInd>\n" +
                 "    <Copyright>Copyright (C) 2000 Carnival Corporation.  All rights reserved.</Copyright>\n" +
                 "  </MessageHeader>\n" +
-                "  <RateAvailabilityRequest SegmentId=\"" + messageID + "\">\n" +
+                "  <ItineraryRequest SegmentId=\"" + messageID.substring(2) + "\">\n" +
                 "    <SailingId>%s</SailingId>\n" +
                 "    <SailDate>%s</SailDate>\n" +
                 "    <DurationDays>%s</DurationDays>\n" +
                 "    <Ship Code=\"%s\"/>\n" +
-                "    <City Code=\"%s\" />" +
-                "    <Currency Code=\"EUR\"/>\n" +
-                "    <Transportation Type=\"O\" />" +
-                "    <BestFareInd>Y</BestFareInd>\n" +
-                "    <IncludeGroupsInd>Y</IncludeGroupsInd>\n" +
-                "    <Guest SeqNumber=\"1\" AgeCode=\"A\"/>\n" +
-                "    <Guest SeqNumber=\"2\" AgeCode=\"A\"/>" +
-                "  </RateAvailabilityRequest>\n" +
+                "  </ItineraryRequest>\n" +
                 "</CruiseLineRequest>";
         WebClient client = new WebClient(url);
-        xmlData = String.format(xmlData, sailingID, sailDate, durationDays, shipCode, cityCode);
+        xmlData = String.format(xmlData, sailingID, sailDate, durationDays, shipCode);
         String response = client.Post(xmlData);
         String json = XML.toJSONObject(response.toString()).toString();
         return  json;
     }
+
 }
