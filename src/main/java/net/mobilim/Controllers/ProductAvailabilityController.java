@@ -1,18 +1,11 @@
-package com.naviosa.Controllers;
+package net.mobilim.Controllers;
 
-import com.naviosa.Models.ProductAvailabilityResponse;
-import com.naviosa.NaviGate.WebClient;
+import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-
-import javax.net.ssl.HttpsURLConnection;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 
 
 @RestController
@@ -51,6 +44,7 @@ public class ProductAvailabilityController {
                 "    <DepDate From=\"%s\" To=\"%s\" />\n" +
                 "    <DurationDays Minimum=\"%s\" Maximum=\"%s\" />\n" +
                 "    <Ship Code=\"%s\"/>" +
+                "    <SailingStatus Code=\"AV\" />\n" +
                 "    <Destination Code=\"%s\" />\n" +
                 "  </ProductAvailabilityRequest>\n" +
                 "</CruiseLineRequest>";

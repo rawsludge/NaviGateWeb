@@ -1,6 +1,6 @@
-package com.naviosa.Controllers;
+package net.mobilim.Controllers;
 
-import com.naviosa.NaviGate.WebClient;
+import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;

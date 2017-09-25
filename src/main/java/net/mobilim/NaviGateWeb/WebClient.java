@@ -1,4 +1,4 @@
-package com.naviosa.NaviGate;
+package net.mobilim.NaviGateWeb;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
