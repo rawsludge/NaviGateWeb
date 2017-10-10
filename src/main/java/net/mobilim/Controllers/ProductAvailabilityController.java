@@ -1,6 +1,5 @@
 package net.mobilim.Controllers;
 
-import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,9 +49,9 @@ public class ProductAvailabilityController {
                 "</CruiseLineRequest>";
         xmlData = String.format(xmlData, dateFrom, dateTo, durationMin, durationMax, shipCode, destCode);
 
-        WebClient client = new WebClient(url);
+/*        WebClient client = new WebClient(url);
         String response = client.Post(xmlData);
-        String json = XML.toJSONObject(response.toString()).toString();
-        return  json;
+        String json = XML.toJSONObject(response.toString()).toString();*/
+        return  "";
     }
 }

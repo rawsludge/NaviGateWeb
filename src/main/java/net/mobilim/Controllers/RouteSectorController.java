@@ -1,6 +1,5 @@
 package net.mobilim.Controllers;
 
-import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ public class RouteSectorController {
 
     @RequestMapping(value = "/route", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody String getRouteInJson(@RequestParam(value =  "sailingID", required = true) String sailingID) throws Exception {
-        String xmlData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+/*        String xmlData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<CruiseLineRequest>\n" +
                 "  <MessageHeader SegmentId=\"MSGHDR\">\n" +
                 "    <MessageId>" + messageID + "</MessageId>\n" +
@@ -42,7 +41,7 @@ public class RouteSectorController {
         WebClient client = new WebClient(url);
         xmlData = String.format(xmlData, sailingID);
         String response = client.Post(xmlData);
-        String json = XML.toJSONObject(response.toString()).toString();
-        return  json;
+        String json = XML.toJSONObject(response.toString()).toString();*/
+        return  "";
     }
 }

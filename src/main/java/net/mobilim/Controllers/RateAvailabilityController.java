@@ -1,6 +1,5 @@
 package net.mobilim.Controllers;
 
-import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,10 +53,10 @@ public class RateAvailabilityController {
                 "     <Guest SeqNumber=\"2\" AgeCode=\"A\"/>" +
                 "  </RateAvailabilityRequest>\n" +
                 "</CruiseLineRequest>";
-        WebClient client = new WebClient(url);
+/*        WebClient client = new WebClient(url);
         xmlData = String.format(xmlData, sailingID, sailDate, durationDays, shipCode, cityCode);
         String response = client.Post(xmlData);
-        String json = XML.toJSONObject(response.toString()).toString();
-        return  json;
+        String json = XML.toJSONObject(response.toString()).toString();*/
+        return  "";
     }
 }

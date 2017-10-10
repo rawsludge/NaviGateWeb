@@ -1,6 +1,5 @@
 package net.mobilim.Controllers;
 
-import net.mobilim.NaviGateWeb.WebClient;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -52,10 +51,10 @@ public class CategoryAvailabilityController {
                 "    <IncludeGroupsInd>Y</IncludeGroupsInd>\n" +
                 "  </CategoryAvailabilityRequest>\n" +
                 "</CruiseLineRequest>";
-        WebClient client = new WebClient(url);
+/*        WebClient client = new WebClient(url);
         xmlData = String.format(xmlData, sailingID, sailDate, shipCode, cityCode, rateCode);
         String response = client.Post(xmlData);
-        String json = XML.toJSONObject(response.toString()).toString();
-        return  json;
+        String json = XML.toJSONObject(response.toString()).toString();*/
+        return  "";
     }
 }
