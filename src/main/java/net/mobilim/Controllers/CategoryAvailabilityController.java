@@ -1,13 +1,10 @@
 package net.mobilim.Controllers;
 
-import org.json.XML;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CategoryAvailabilityController {
-    @Value("${website.url}")
-    private String url;
 
     private String messageID="CCCATAV1";
 

@@ -1,6 +1,5 @@
 package net.mobilim.Controllers;
 
-import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,9 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class RateAvailabilityController {
     private final Logger logger = LoggerFactory.getLogger(ProductAvailabilityController.class);
-
-    @Value("${website.url}")
-    private String url;
 
     private String messageID="CCRATAV1";
 
