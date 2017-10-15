@@ -1,5 +1,6 @@
 package net.mobilim.NaviGateWeb;
 
+import net.mobilim.NaviGateWeb.Config.ApplicationConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -12,13 +13,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 
 @SpringBootApplication
-@ComponentScan( basePackages = {"net.mobilim"})
-@EntityScan("net.mobilim.NaviGateData.Entities")
-@EnableJpaRepositories("net.mobilim.NaviGateData.Repositories")
 public class WebApp
 {
     public static void main( String[] args )
     {
-    		SpringApplication.run(WebApp.class, args);
+    		SpringApplication.run(ApplicationConfig.class, args);
     }
 }

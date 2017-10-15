@@ -1,4 +1,4 @@
-package net.mobilim.Models;
+package net.mobilim.NaviGateWeb.Models;
 
 public class ProductAvailabilityResponse {
     public String segmentID;

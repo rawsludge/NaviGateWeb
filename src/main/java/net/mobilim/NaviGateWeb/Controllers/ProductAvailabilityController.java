@@ -1,13 +1,12 @@
-package net.mobilim.Controllers;
+package net.mobilim.NaviGateWeb.Controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import net.mobilim.NaviGateData.Entities.Product;
 import net.mobilim.NaviGateData.Repositories.ProductRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +19,14 @@ import java.util.List;
 
 @RestController
 public class ProductAvailabilityController {
-    private final Logger logger = LoggerFactory.getLogger(ProductAvailabilityController.class);
+    private final Logger logger = LogManager.getLogger(ProductAvailabilityController.class);
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @RequestMapping(value = "/product", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody ResponseEntity<String> getProductInJson(
@@ -40,16 +42,16 @@ public class ProductAvailabilityController {
         Integer maxDuration = Integer.parseInt(durationMax);
         String ship = shipCode == null ? "%" : shipCode.concat("%");
         String destination = destCode == null ? "%" : destCode.concat("%");
-        List<Product> products = productRepository.findAvailableProducts(fromDate, toDate, minDuration, maxDuration,ship, destination);
+        logger.info("findAvailableProducts is being called. fromData:{}, toDate:{}, minDuration:{}, maxDuration:{}, ship:{}, destination:{}",
+                fromDate, toDate, minDuration, maxDuration, ship, destination);
+        List<Product> products = productRepository.findAvailableProducts(fromDate, toDate, minDuration, maxDuration, ship, destination);
+        logger.info("findAvailableProducts called. {} product(s) found", products.size());
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        //objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        objectMapper.setDateFormat(simpleDateFormat);
-        Hibernate5Module module = new Hibernate5Module();
-        module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
-        objectMapper.registerModule(module);
+
         try {
+            logger.info("writeValueAsString is being called");
             String jsonInString = objectMapper.writeValueAsString(products);
+            logger.info("writeValueAsString called");
             return new ResponseEntity<String>(jsonInString, HttpStatus.OK);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
