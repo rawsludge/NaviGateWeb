@@ -8,6 +8,8 @@ import net.mobilim.NaviGateData.Repositories.ProductRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +37,8 @@ public class ProductAvailabilityController {
             @RequestParam(value = "durationMin", required = true) String durationMin,
             @RequestParam(value = "durationMax", required = true) String durationMax,
             @RequestParam(value = "shipCode", required = false) String shipCode,
-            @RequestParam(value = "destCode", required = false) String destCode ) throws Exception {
+            @RequestParam(value = "destCode", required = false) String destCode,
+            Pageable pageable) throws Exception {
         Date fromDate = simpleDateFormat.parse(dateFrom);
         Date toDate = simpleDateFormat.parse(dateTo);
         Integer minDuration = Integer.parseInt(durationMin);
@@ -44,8 +47,8 @@ public class ProductAvailabilityController {
         String destination = destCode == null ? "%" : destCode.concat("%");
         logger.info("findAvailableProducts is being called. fromData:{}, toDate:{}, minDuration:{}, maxDuration:{}, ship:{}, destination:{}",
                 fromDate, toDate, minDuration, maxDuration, ship, destination);
-        List<Product> products = productRepository.findAvailableProducts(fromDate, toDate, minDuration, maxDuration, ship, destination);
-        logger.info("findAvailableProducts called. {} product(s) found", products.size());
+        Page<Product> products = productRepository.findAvailableProducts(fromDate, toDate, minDuration, maxDuration, ship, destination, pageable);
+        logger.info("findAvailableProducts called. {} product(s) found", products.getSize());
 
 
         try {

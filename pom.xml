@@ -92,6 +92,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <mainClass>net.mobilim.NaviGateWeb.WebApp</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>
                 </configuration>
