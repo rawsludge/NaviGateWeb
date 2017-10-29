@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CruiseLineRequest>
+    <MessageHeader SegmentId="MSGHDR">
+        <MessageId>CCPROIT1</MessageId>
+        <SessionId>1234</SessionId>
+        <CruiseLineCode>PCL</CruiseLineCode>
+        <UserId>optional</UserId>
+        <UserName>username</UserName>
+        <SystemId>E4</SystemId>
+        <AgencyId>1319</AgencyId>
+        <UICode>3</UICode>
+        <VersionNum>3.0</VersionNum>
+        <AttemptCnt>1</AttemptCnt>
+        <SendDescriptionInd>Y</SendDescriptionInd>
+        <Copyright>Copyright (C) 2000 Carnival Corporation. All rights reserved.</Copyright>
+    </MessageHeader>
+    <ItineraryRequest SegmentId="PROIT1">
+        <SailingId>R746</SailingId>
+        <SailDate>10282017</SailDate>
+        <DurationDays>7</DurationDays>
+        <Ship Code="RU"/>
+    </ItineraryRequest>
+</CruiseLineRequest>

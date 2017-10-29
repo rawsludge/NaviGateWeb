@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<CruiseLineResponse>
+    <MessageHeader SegmentId="MSGHDR">
+        <MessageId>CCPROIT2</MessageId>
+        <SessionId>1234</SessionId>
+        <CruiseLineCode>PCL</CruiseLineCode>
+        <SystemId>E4</SystemId>
+        <UserId>optional</UserId>
+        <UserName>username</UserName>
+        <AgencyId>1319</AgencyId>
+        <UICode>3</UICode>
+        <VersionNum>3.0</VersionNum>
+        <AttemptCnt>1</AttemptCnt>
+        <SendDescriptionInd>Y</SendDescriptionInd>
+        <Copyright>Copyright (C) 2000 Carnival Corporation. All rights reserved.</Copyright>
+    </MessageHeader>
+    <ItineraryResponse SegmentId="PROIT2">
+        <Sailing Description="Mexico - Riviera"/>
+        <ItinInformation>
+            <Date>10282017</Date>
+            <PortCode>LAX</PortCode>
+            <PortName Pier="SAN PEDRO PIER 93">LOS ANGELES, CALIFORNIA</PortName>
+            <GenericPortTime Code="" Description="                DEPART  4:00PM"/>
+            <PortDescription>CHECK IN STARTS AT 0100P SHIP @ PORT OF SAN PEDRO CHECK IN 1:00PM-3:00PM</PortDescription>
+            <PortSchedule Code="DP" Description="DEPART" Time="1600"></PortSchedule>
+            <PortSchedule Code="BO" Description="BOARD SHIP" Time="1300"></PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>10292017</Date>
+            <PortCode></PortCode>
+            <PortName>AT SEA</PortName>
+            <PortSchedule Code="BO" Description="BOARDING" Time="0000"></PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>10302017</Date>
+            <PortCode></PortCode>
+            <PortName>AT SEA</PortName>
+            <PortSchedule Code="BO" Description="BOARDING" Time="0000">
+            </PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>10312017</Date>
+            <PortCode>PVR</PortCode>
+            <PortName>PUERTO VALLARTA, MEXICO</PortName>
+            <GenericPortTime Code="" Description="ARRIVE 10:00AM  DEPART  8:00PM"/>
+            <PortSchedule Code="AR" Description="ARRIVE" Time="1000"></PortSchedule>
+            <PortSchedule Code="DP" Description="DEPART" Time="2000"></PortSchedule>
+            <PortSchedule Code="BO" Description="BOARD SHIP" Time="1930"></PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>11012017</Date>
+            <PortCode>MZT</PortCode>
+            <PortName>MAZATLAN, MEXICO</PortName>
+            <GenericPortTime Code="" Description="ARRIVE  7:00AM  DEPART  5:00PM"/>
+            <PortSchedule Code="AR" Description="ARRIVE" Time="0700"></PortSchedule>
+            <PortSchedule Code="DP" Description="DEPART" Time="1700"></PortSchedule>
+            <PortSchedule Code="BO" Description="BOARD SHIP" Time="1630"></PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>11022017</Date>
+            <PortCode>SJD</PortCode>
+            <PortName>CABO SAN LUCAS, MEXICO</PortName>
+            <GenericPortTime Code="" Description="ARRIVE  7:00AM  DEPART  2:00PM"/>
+            <PortDescription>Tender Required WHEELCHAIR ACCESS LIMITED</PortDescription>
+            <PortSchedule Code="AR" Description="ARRIVE" Time="0700">
+            </PortSchedule>
+            <PortSchedule Code="DP" Description="DEPART" Time="1400"></PortSchedule>
+            <PortSchedule Code="BO" Description="BOARD SHIP" Time="1330"></PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>11032017</Date>
+            <PortCode>
+            </PortCode>
+            <PortName>AT SEA</PortName>
+            <PortSchedule Code="BO" Description="BOARDING" Time="0000">
+            </PortSchedule>
+        </ItinInformation>
+        <ItinInformation>
+            <Date>11042017</Date>
+            <PortCode>LAX</PortCode>
+            <PortName Pier="SAN PEDRO PIER 93">LOS ANGELES, CALIFORNIA</PortName>
+            <GenericPortTime Code="" Description="ARRIVE  7:00AM"/>
+            <PortDescription>SHIP @ PORT OF SAN PEDRO</PortDescription>
+            <PortSchedule Code="AR" Description="ARRIVE" Time="0700"></PortSchedule>
+        </ItinInformation>
+    </ItineraryResponse>
+</CruiseLineResponse>
+
+
+
+

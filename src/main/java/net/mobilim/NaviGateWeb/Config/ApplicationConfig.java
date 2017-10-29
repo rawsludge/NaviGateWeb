@@ -2,6 +2,7 @@ package net.mobilim.NaviGateWeb.Config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+import net.mobilim.NaviGateWeb.Json.DateModule;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,11 +20,12 @@ public class ApplicationConfig {
     public ObjectMapper objectMapper() {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setDateFormat(simpleDateFormat);
+        //objectMapper.setDateFormat(simpleDateFormat);
         objectMapper.registerModule(
             new Hibernate5Module()
                 .configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true)
         );
+        objectMapper.registerModule( new DateModule());
         return  objectMapper;
     }
 }
