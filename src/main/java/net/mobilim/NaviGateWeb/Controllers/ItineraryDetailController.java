@@ -9,7 +9,7 @@ public class ItineraryDetailController {
     private String messageID="CCPROIT1";
 
 
-    @RequestMapping(value = "/itinerary", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/itinerary/detatil", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody String getItineraryInJson(
             @RequestParam(value = "sailingID", required = true) String sailingID,
             @RequestParam(value = "sailDate", required = true) String sailDate,
