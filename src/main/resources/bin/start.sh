@@ -10,5 +10,5 @@ if [ "$ENV" == "" ]; then
     ENV=dev
 fi
 
-java -Xms128m -Xmx256m -Dspring.environment=$ENV -Dlog4j.configurationFile=../config/log4j2.xml -Dspring.config.location=../config/application.properties,../config/env/$ENV/application.properties  -jar ../lib/NaviGateWeb-0.0.1-SNAPSHOT.jar
+java -Xms128m -Xmx256m -Dspring.environment=$ENV -Dlogging.config=../config/log4j2.xml -Dspring.config.location=../config/application.properties,../config/env/$ENV/application.properties  -jar ../lib/NaviGateWeb-0.0.1-SNAPSHOT.jar
 

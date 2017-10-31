@@ -19,11 +19,16 @@ public class DateSerializer extends JsonSerializer<Date> {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
-        jsonGenerator.writeStartObject();
-        jsonGenerator.writeStringField("date", simpleDateFormat.format(date).toString());
-        jsonGenerator.writeNumberField("year", calendar.get(Calendar.YEAR));
-        jsonGenerator.writeNumberField("month", calendar.get(Calendar.MONTH) + 1);
-        jsonGenerator.writeNumberField("day", calendar.get(Calendar.DAY_OF_MONTH));
-        jsonGenerator.writeEndObject();
+        if( calendar.get(Calendar.YEAR) > 1970) {
+            jsonGenerator.writeStartObject();
+            jsonGenerator.writeStringField("date", simpleDateFormat.format(date).toString());
+            jsonGenerator.writeNumberField("year", calendar.get(Calendar.YEAR));
+            jsonGenerator.writeNumberField("month", calendar.get(Calendar.MONTH) + 1);
+            jsonGenerator.writeNumberField("day", calendar.get(Calendar.DAY_OF_MONTH));
+            jsonGenerator.writeEndObject();
+        }
+        else {
+            jsonGenerator.writeString(new SimpleDateFormat("HH:mm:ss").format(date));
+        }
     }
 }
